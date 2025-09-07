@@ -1,0 +1,10 @@
+*{
+    font-family: "Poppins", sans-serif;
+}
+.font-bangla {
+    font-family: "Hind Siliguri", sans-serif;
+}
+.btn-get-started:hover {
+    color: #422AD5;
+    background-color: #FFFFFF;
+}

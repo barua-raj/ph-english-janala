@@ -1,3 +1,25 @@
+const creatElement = (arr) => {
+    const htmlElements = arr.map(el => `<span class="btn">${el}</span>`);
+    return htmlElements.join(" ");
+};
+
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+};
+
+const manageSpinner = (status) => {
+    if (status == true) {
+        document.getElementById("spinner").classList.remove("hidden");
+        document.getElementById("word-container").classList.add("hidden");
+    }
+    else {
+        document.getElementById("word-container").classList.remove("hidden");
+        document.getElementById("spinner").classList.add("hidden");
+    }
+};
+
 const loadLessons = () => {
     const url = "https://openapi.programming-hero.com/api/levels/all";
 
@@ -15,7 +37,7 @@ const removeActive = () => {
 };
 
 const loadLevelWord = (id) => {
-    // console.log(id);
+    manageSpinner(true);
     const url = `https://openapi.programming-hero.com/api/level/${id}`;
     fetch(url)
     .then((res) => res.json())
@@ -42,7 +64,7 @@ const displayWordDetails = (word) => {
     const detailsBox = document.getElementById("word-details-container");
     detailsBox.innerHTML = `
             <div class="mb-8">
-                <h2 class="text-2xl font-bold">${word.word} (<i class="fa-solid fa-microphone-lines"></i>: <span class="font-bangla">${word.pronunciation}</span>)</h2>
+                <h2 class="text-2xl font-bold">${word.word} (<i class="fa-solid fa-microphone-lines"></i>: <span class="font-bangla">${word.pronunciation}</span> )</h2>
             </div>
             <div class="">
                 <h2 class="font-semibold mb-2">Meaning</h2>
@@ -54,9 +76,7 @@ const displayWordDetails = (word) => {
             </div>
             <div class="">
                 <h2 class="font-semibold mb-2">Synonyms</h2>
-                <span class="btn">1</span>
-                <span class="btn">2</span>
-                <span class="btn">3</span>
+                <div class="">${creatElement(word.synonyms)}</div>
             </div>
     `;
     document.getElementById("word-modal").showModal();
@@ -74,9 +94,9 @@ const displayLevelWord = (words) => {
                 <h2 class="text-5xl font-semibold"><span class="font-bangla">নেক্সট Lesson <span class="font-bangla">এ যান</span></h2>
             </div>
         `;
+        manageSpinner(false);
         return;
     }
-
     words.forEach(word => {
         const card = document.createElement("div");
         card.innerHTML = `
@@ -88,12 +108,13 @@ const displayLevelWord = (words) => {
                 </div>
                 <div class="flex justify-between items-center mt-10">
                     <button onclick="loadWordDetail(${word.id})" class="btn bg-[rgba(26,145,255,0.1)] hover:bg-[#1A91FF70]"><i class="fa-solid fa-circle-info"></i></button>
-                    <button class="btn bg-[rgba(26,145,255,0.1)] hover:bg-[#1A91FF70]"><i class="fa-solid fa-volume-high"></i></button>
+                    <button onclick="pronounceWord('${word.word}')" class="btn bg-[rgba(26,145,255,0.1)] hover:bg-[#1A91FF70]"><i class="fa-solid fa-volume-high"></i></button>
                 </div>
             </div>
         `;
         wordContainer.append(card);
     });
+    manageSpinner(false);
 };
 
 const displayLesson = (lessons) => {
@@ -113,3 +134,19 @@ const displayLesson = (lessons) => {
 };
 
 loadLessons();
+
+document.getElementById("btn-search").addEventListener("click", () => {
+    removeActive();
+    const input = document.getElementById("input-search");
+    const searchValue = input.value.trim().toLowerCase();
+
+    fetch ("https://openapi.programming-hero.com/api/words/all")
+    .then((res) => res.json())
+    .then((data) => {
+        const allWords = data.data;
+        const filterWords = allWords.filter((word) => word.word.toLowerCase().includes(searchValue));
+       
+    displayLevelWord(filterWords);
+
+    });
+});

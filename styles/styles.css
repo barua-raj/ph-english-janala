@@ -17,3 +17,12 @@ hr {
   height: 1px;
   background-color: #FFEBEB; /* dark gray */
 }
+#input-search:focus,
+#input-search:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+
+  --tw-ring-shadow: 0 0 #0000 !important;
+  --tw-ring-offset-shadow: 0 0 #0000 !important;
+}

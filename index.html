@@ -71,6 +71,7 @@
             </div>
         </nav>
     </header>
+
     <!-- banner -->
     <section class="banner flex flex-col-reverse md:flex-row justify-between items-center gap-10 py-5 w-11/12 mx-auto">
         <div class="content flex-1 text-center md:text-left">
@@ -89,12 +90,32 @@
             <img src="./assets/hero-student.png" alt="">
         </div>
     </section>
+
     <!-- vocabularies level -->
     <section>
         <h2 class="text-4xl font-bold text-center"><span class="text-sky-400">Let's</span> Learn Vocabularies</h2>
         <div id="level-container" class="flex flex-wrap justify-center gap-5 my-10">
         </div>
     </section>
+
+    <!-- search -->
+    <section class="flex justify-center">
+        <div class="join">
+            <div>
+                <label class="input validator join-item">
+                    <input id="input-search" type="text" placeholder="Search Vocabularies!" required />
+                    <!-- <input type="text" placeholder="Type here" class="input my-5 focus:outline-none" /> -->
+                </label>
+            </div>
+            <button id="btn-search" class="btn btn-primary join-item">Search</button>
+        </div>
+    </section>
+
+    <!-- loader -->
+    <section id="spinner" class="flex justify-center items-center py-10 hidden">
+        <span class="loading loading-bars loading-xl"></span>
+    </section>
+
     <!-- lesson select -->
      <section id="word-container" class="bg-gray-100 p-10 w-11/12 mx-auto my-10 grid grid-cols-1 md:grid-cols-3 gap-5 rounded-2xl">
         <div class="text-center col-span-full py-10 space-y-6">
@@ -102,6 +123,7 @@
             <h2 class="text-5xl font-semibold"><span class="font-bangla">একটি</span> Lesson Select <span class="font-bangla">করুন</span></h2>
         </div>
     </section>
+
     <!-- modal -->
     <!-- Open the modal using ID.showModal() method -->
     <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
@@ -111,10 +133,10 @@
                 
             </div>
             <div class="modal-action">
-            <form method="dialog">
-                <!-- if there is a button in form, it will close the modal -->
-                <button class="btn">Close</button>
-            </form>
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
             </div>
         </div>
     </dialog>
@@ -166,7 +188,9 @@
             </div>
         </div>
     </section>
-<hr>
+
+    <hr>
+
     <footer class="bg-[#FFEBEB20]">
         <div class="w-11/12 mx-auto">
             <div class="flex flex-col md:flex-row gap-10 justify-between items-center py-15">
@@ -179,7 +203,7 @@
                     <p class="font-bangla text-lg font-semibold text-[#422AD5] text-center">ইংরেজি শিখুন সহজে<p>
                 </div>
                 <div class="">
-                    <p class="text-lg font-semibold mb-2 text-[#422AD590] text-center md:text-right">Follow Us!<p>
+                    <p class="text-lg font-semibold mb-2 text-[#422AD590] text-center">Follow Us!<p>
                     <div class="flex justify-center items-center gap-2">
                         <img src="./assets/facebook.png" alt="" class="w-[22px] h-[22]">
                         <img src="./assets/youtube.png" alt="" class="w-[22px] h-[22]">
@@ -191,6 +215,7 @@
             <p class="text-center font-light">© 2025 English Vocabularies. All rights reserved | Build your vocabulary with us.</p>
         </div>
     </footer>
+    
     <script src="./scripts/index.js"></script>
 </body>
 </html>

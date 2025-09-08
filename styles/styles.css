@@ -8,3 +8,12 @@
     color: #422AD5;
     background-color: #FFFFFF;
 }
+.active {
+    background-color: #422AD5;
+    color: #FFFFFF;
+}
+hr {
+  border: none;
+  height: 1px;
+  background-color: #FFEBEB; /* dark gray */
+}

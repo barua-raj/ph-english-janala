@@ -96,9 +96,101 @@
         </div>
     </section>
     <!-- lesson select -->
-     <section id="word-container" class="bg-gray-100 p-10 w-11/12 mx-auto my-10 grid grid-cols-3 gap-5">
-        
+     <section id="word-container" class="bg-gray-100 p-10 w-11/12 mx-auto my-10 grid grid-cols-1 md:grid-cols-3 gap-5 rounded-2xl">
+        <div class="text-center col-span-full py-10 space-y-6">
+            <p class="text-xl font-medium text-gray-600"><span class="font-bangla">আপনি এখনো কোন</span> Lesson Select <span class="font-bangla">করেননি</span></p>
+            <h2 class="text-5xl font-semibold"><span class="font-bangla">একটি</span> Lesson Select <span class="font-bangla">করুন</span></h2>
+        </div>
     </section>
+    <!-- modal -->
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+    <dialog id="word-modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <div id="word-details-container" class="space-y-5">
+                
+            </div>
+            <div class="modal-action">
+            <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn">Close</button>
+            </form>
+            </div>
+        </div>
+    </dialog>
+    <!-- accordion -->
+    <section class="w-11/12 mx-auto my-20 space-y-5">
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+            <input type="radio" name="my-accordion-3" checked="checked" />
+            <div class="collapse-title font-medium">
+                1. How can I start learning English on this website?
+            </div>
+            <div class="collapse-content text-sm">
+                You can start by exploring our beginner lessons, interactive exercises, and quizzes. We also offer structured courses to guide you step by step.
+            </div>
+        </div>
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title font-medium">
+                2. Is this website free to use?
+            </div>
+            <div class="collapse-content text-sm">
+                Yes, this website is completely free to use.
+            </div>
+        </div>
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title font-medium">
+                3. Do I need to create an account?
+            </div>
+            <div class="collapse-content text-sm">
+                Yes, you need to create an account to use the website.
+            </div>
+        </div>
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title font-medium">
+                4. How can I build my English vocabulary?
+            </div>
+            <div class="collapse-content text-sm">
+                You can build your English vocabulary by practicing daily and learning new words regularly on the website.
+            </div>
+        </div>
+        <div class="collapse collapse-plus bg-base-100 border border-base-300">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title font-medium">
+                5. Do you offer certificates for completed courses?
+            </div>
+            <div class="collapse-content text-sm">
+                Yes, we provide certificates after you complete the courses.
+            </div>
+        </div>
+    </section>
+<hr>
+    <footer class="bg-[#FFEBEB20]">
+        <div class="w-11/12 mx-auto">
+            <div class="flex flex-col md:flex-row gap-10 justify-between items-center py-20">
+                <div class="">
+                    <a href="" class="flex items-center gap-1 mb-2">
+                        <span class="text-lg font-bold">English</span>
+                        <img src="./assets/logo.png" alt="" class="w-[30px] h-[30px]">
+                        <span class="font-bangla text-lg font-bold">জানালা</span>
+                    </a>
+                    <p class="font-bangla text-lg font-semibold text-[#422AD5]">ইংরেজি শিখুন সহজে<p>
+                </div>
+                <div class="">
+                    <p class="text-lg font-semibold mb-2 text-[#422AD590]">Follow Us!<p>
+                    <div class="flex justify-center items-center gap-2">
+                        <img src="./assets/facebook.png" alt="" class="w-[22px] h-[22]">
+                        <img src="./assets/youtube.png" alt="" class="w-[22px] h-[22]">
+                        <img src="./assets/instagram.png" alt="" class="w-[22px] h-[22]">
+                        <img src="./assets/github.png" alt="" class="w-[22px] h-[22]">
+                    </div>
+                </div>
+            </div>
+            <p class="text-center font-light">© 2025 English Vocabularies. All rights reserved | Build your vocabulary with us.</p>
+        </div>
+    </footer>
     <script src="./scripts/index.js"></script>
 </body>
 </html>
